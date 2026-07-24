@@ -1,16 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Send, Wallet, Zap, ShieldCheck, PiggyBank, TrendingUp, Globe, ArrowRight,
-  QrCode, Users, Smartphone, Star, Bell, Settings, Home as HomeIcon,
-  Receipt, BarChart3, Sparkles, Check, Lock, Fingerprint, ArrowUpRight,
+  Send, ShieldCheck, PiggyBank, TrendingUp, Globe, ArrowRight,
+  QrCode, Users, Smartphone, Star,
+  Receipt, Sparkles, Check, Lock, Fingerprint, ArrowUpRight,
 } from "lucide-react";
+import { SiteNav, SiteFooter } from "@/components/SiteChrome";
 import splash from "@/assets/pundar-splash.jpg.asset.json";
 import homeShot from "@/assets/pundar-home.jpg.asset.json";
 import payShot from "@/assets/pundar-pay.jpg.asset.json";
 import circleShot from "@/assets/pundar-circle.jpg.asset.json";
 import growShot from "@/assets/pundar-grow.jpg.asset.json";
 import converterShot from "@/assets/pundar-converter.jpg.asset.json";
-import quickShot from "@/assets/pundar-quick.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
