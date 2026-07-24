@@ -66,30 +66,8 @@ const pillars = [
 function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-white/5">
-        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2.5">
-            <div className="relative w-10 h-10 rounded-full grid place-items-center border-2 border-primary bg-background">
-              <span className="font-black text-primary text-lg">P</span>
-            </div>
-            <span className="text-xl font-black tracking-widest">PUNDAR</span>
-          </a>
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-foreground/75">
-            <a href="#features" className="hover:text-primary transition">Features</a>
-            <a href="#pay" className="hover:text-primary transition">Pay</a>
-            <a href="#circle" className="hover:text-primary transition">Circle</a>
-            <a href="#grow" className="hover:text-primary transition">Grow</a>
-            <a href="#security" className="hover:text-primary transition">Security</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href="#download" className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 text-gold text-xs font-bold">
-              <Star className="w-3.5 h-3.5 fill-gold" /> 850
-            </a>
-            <a href="#download" className="btn-primary text-sm px-5 py-2.5">Download</a>
-          </div>
-        </div>
-      </header>
+      <SiteNav />
+
 
       {/* Hero */}
       <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32" style={{ background: "var(--gradient-hero)" }}>
@@ -333,39 +311,8 @@ function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 bg-background/60 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-6 py-14 grid md:grid-cols-4 gap-10">
-          <div>
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full grid place-items-center border-2 border-primary">
-                <span className="font-black text-primary">P</span>
-              </div>
-              <span className="text-lg font-black tracking-widest">PUNDAR</span>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-              Build Together. Grow Together. The everyday money app powered by Stellar Blockchain.
-            </p>
-          </div>
-          {[
-            { h: "Product", l: ["Pay", "Circle", "Grow", "Converter"] },
-            { h: "Company", l: ["About", "Careers", "Press", "Partners"] },
-            { h: "Support", l: ["Help Center", "Contact", "Security", "Privacy"] },
-          ].map((c) => (
-            <div key={c.h}>
-              <h4 className="font-bold text-sm uppercase tracking-widest text-foreground/90">{c.h}</h4>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {c.l.map((i) => <li key={i}><a href="#" className="hover:text-primary transition">{i}</a></li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="border-t border-white/5">
-          <div className="mx-auto max-w-7xl px-6 py-5 text-xs text-muted-foreground flex flex-wrap justify-between gap-3">
-            <span>© {new Date().getFullYear()} Pundar. All rights reserved.</span>
-            <span className="inline-flex items-center gap-2"><Star className="w-3 h-3 text-gold fill-gold" /> Powered by Stellar Blockchain</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
+
     </div>
   );
 }
