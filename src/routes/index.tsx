@@ -87,11 +87,12 @@ function Landing() {
               bill splits, and tokenized investments — all on one Stellar-powered wallet.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#download" className="btn-primary">
+              <Link to="/about" hash="download" className="btn-primary">
                 Get Pundar <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
+              </Link>
               <a href="#features" className="btn-ghost">Explore Features</a>
             </div>
+
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
               <div><div className="text-2xl font-black">₱11.43</div><div className="text-xs text-muted-foreground mt-1">Live XLM rate</div></div>
               <div><div className="text-2xl font-black">80M+</div><div className="text-xs text-muted-foreground mt-1">Filipinos</div></div>
@@ -159,9 +160,9 @@ function Landing() {
                     </li>
                   ))}
                 </ul>
-                <a href="#download" className="mt-8 inline-flex items-center gap-2 text-primary font-semibold group">
+                <Link to={`/${anchor}` as "/pay" | "/circle" | "/grow"} className="mt-8 inline-flex items-center gap-2 text-primary font-semibold group">
                   Learn more <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                </Link>
               </div>
               <div className="relative flex justify-center">
                 <div className={`absolute -inset-10 rounded-full blur-3xl bg-gradient-to-br ${p.accent} opacity-70 pointer-events-none`} />
