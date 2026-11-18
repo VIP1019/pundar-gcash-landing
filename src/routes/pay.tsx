@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Receipt, QrCode, Zap, Users, Check, ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import { SiteShell } from "@/components/SiteChrome";
-import payShot from "@/assets/pundar-pay.jpg.asset.json";
-import quickShot from "@/assets/pundar-quick.jpg.asset.json";
+import payImg from "@/assets/pundar-pay.jpg";
+import homeImg from "@/assets/pundar-home.jpg";
+const payShot = { url: payImg };
+const quickShot = { url: homeImg };
 
 export const Route = createFileRoute("/pay")({
   head: () => ({
     meta: [
-      { title: "PUNDAR Pay — Split bills & pay instantly on Stellar" },
+      { title: "PUNDAR Pay â€” Split bills & pay instantly on Stellar" },
       { name: "description", content: "Group bills, QR payments, and instant settlement powered by Stellar. Split dinners, subscriptions, and outings with zero friction." },
-      { property: "og:title", content: "PUNDAR Pay — Instant bill splits on Stellar" },
-      { property: "og:description", content: "Split any expense, settle in seconds, and pay merchants by QR — all on Stellar rails." },
+      { property: "og:title", content: "PUNDAR Pay â€” Instant bill splits on Stellar" },
+      { property: "og:description", content: "Split any expense, settle in seconds, and pay merchants by QR â€” all on Stellar rails." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: payShot.url },
       { name: "twitter:card", content: "summary_large_image" },
@@ -23,7 +25,7 @@ export const Route = createFileRoute("/pay")({
 const features = [
   { icon: Receipt, title: "Group bills", desc: "Split equally or itemize each line. Track who paid in real-time." },
   { icon: Zap, title: "Instant settle", desc: "Batch-pay every pending bill in a single Stellar transaction." },
-  { icon: QrCode, title: "QR pay & request", desc: "Generate one-time codes or scan merchant QR — with expiry & anti-double-pay." },
+  { icon: QrCode, title: "QR pay & request", desc: "Generate one-time codes or scan merchant QR â€” with expiry & anti-double-pay." },
   { icon: Sparkles, title: "Auto round-ups", desc: "Every payment rounds up to the nearest peso and funds your investments." },
   { icon: ShieldCheck, title: "MPIN authorized", desc: "Biometric or MPIN confirmation before any settlement leaves your wallet." },
   { icon: Users, title: "Shared history", desc: "Every group keeps a transparent ledger of contributions and settlements." },
@@ -43,11 +45,11 @@ function PayPage() {
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg">
               From barkada dinners to shared subscriptions, PUNDAR Pay handles the math,
-              collects the money, and settles it in seconds on Stellar — fees measured in
+              collects the money, and settles it in seconds on Stellar â€” fees measured in
               fractions of a centavo.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/about" hash="download" className="btn-primary">
+              <Link to="/app" className="btn-primary">
                 Get Pundar <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link to="/circle" className="btn-ghost">Explore Circle</Link>
@@ -56,10 +58,10 @@ function PayPage() {
           <div className="relative flex justify-center min-h-[520px] items-center">
             <div className="absolute w-[360px] h-[360px] rounded-full ping-ring opacity-60" />
             <div className="phone-frame w-[260px] absolute -left-2 top-10 float-slower rotate-[-6deg]">
-              <img src={quickShot.url} alt="Quick pay" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={quickShot.url} alt="Quick pay" /></div>
             </div>
             <div className="phone-frame w-[280px] relative z-10 float-slow">
-              <img src={payShot.url} alt="PUNDAR Pay bill splitting" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={payShot.url} alt="PUNDAR Pay bill splitting" /></div>
             </div>
           </div>
         </div>
@@ -106,3 +108,4 @@ function PayPage() {
     </SiteShell>
   );
 }
+

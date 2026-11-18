@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TrendingUp, PiggyBank, BarChart3, Sparkles, Check, ArrowRight, Globe } from "lucide-react";
 import { SiteShell } from "@/components/SiteChrome";
-import growShot from "@/assets/pundar-grow.jpg.asset.json";
-import converterShot from "@/assets/pundar-converter.jpg.asset.json";
+import growImg from "@/assets/pundar-grow.jpg";
+import converterImg from "@/assets/pundar-converter.jpg";
+const growShot = { url: growImg };
+const converterShot = { url: converterImg };
 
 export const Route = createFileRoute("/grow")({
   head: () => ({
     meta: [
-      { title: "PUNDAR Grow — Fractional PSE investing from ₱10" },
-      { name: "description", content: "Own a slice of Philippine equities from just ₱10. Auto round-ups turn everyday spending into a growing portfolio." },
-      { property: "og:title", content: "PUNDAR Grow — Micro-investing for every Filipino" },
-      { property: "og:description", content: "Fractional PSE shares, automated round-ups, and portfolio analytics — investing without the barrier." },
+      { title: "PUNDAR Grow â€” Fractional PSE investing from â‚±10" },
+      { name: "description", content: "Own a slice of Philippine equities from just â‚±10. Auto round-ups turn everyday spending into a growing portfolio." },
+      { property: "og:title", content: "PUNDAR Grow â€” Micro-investing for every Filipino" },
+      { property: "og:description", content: "Fractional PSE shares, automated round-ups, and portfolio analytics â€” investing without the barrier." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: growShot.url },
       { name: "twitter:card", content: "summary_large_image" },
@@ -33,17 +35,17 @@ function GrowPage() {
               Every peso keeps building.
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg">
-              Buy fractional shares of PSE-listed companies from as little as ₱10. Turn on
+              Buy fractional shares of PSE-listed companies from as little as â‚±10. Turn on
               round-ups and PUNDAR quietly invests your spare change while you go about your day.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/about" hash="download" className="btn-primary">
+              <Link to="/app" className="btn-primary">
                 Start investing <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link to="/pay" className="btn-ghost">See round-ups</Link>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
-              <div><div className="text-2xl font-black">₱10</div><div className="text-xs text-muted-foreground mt-1">Minimum investment</div></div>
+              <div><div className="text-2xl font-black">â‚±10</div><div className="text-xs text-muted-foreground mt-1">Minimum investment</div></div>
               <div><div className="text-2xl font-black">PSE</div><div className="text-xs text-muted-foreground mt-1">Fractional equities</div></div>
               <div><div className="text-2xl font-black">Auto</div><div className="text-xs text-muted-foreground mt-1">Round-up sweeps</div></div>
             </div>
@@ -51,7 +53,7 @@ function GrowPage() {
           <div className="relative flex justify-center min-h-[520px] items-center">
             <div className="absolute w-[360px] h-[360px] rounded-full ping-ring opacity-60" />
             <div className="phone-frame w-[280px] relative z-10 float-slow">
-              <img src={growShot.url} alt="PUNDAR Grow portfolio" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={growShot.url} alt="PUNDAR Grow portfolio" /></div>
             </div>
           </div>
         </div>
@@ -94,7 +96,7 @@ function GrowPage() {
                 converts on the fly. Whether you're earning abroad or investing at home, your money moves at Stellar speed.
               </p>
               <ul className="mt-6 space-y-3 text-sm">
-                {["Live XLM exchange rates", "Fractional shares from ₱10", "Automated portfolio rebalance"].map((f) => (
+                {["Live XLM exchange rates", "Fractional shares from â‚±10", "Automated portfolio rebalance"].map((f) => (
                   <li key={f} className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-mint/15 border border-mint/40 grid place-items-center">
                       <Check className="w-3.5 h-3.5 text-mint" />
@@ -107,7 +109,7 @@ function GrowPage() {
             <div className="relative flex justify-center">
               <div className="absolute -inset-6 rounded-full blur-3xl bg-mint/25 pointer-events-none" />
               <div className="phone-frame w-[260px] relative">
-                <img src={converterShot.url} alt="XLM Converter" className="w-full rounded-[2rem]" />
+                <div className="phone-screen"><img src={converterShot.url} alt="XLM Converter" /></div>
               </div>
             </div>
           </div>
@@ -116,3 +118,4 @@ function GrowPage() {
     </SiteShell>
   );
 }
+

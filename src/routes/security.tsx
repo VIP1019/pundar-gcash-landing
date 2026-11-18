@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Fingerprint, Lock, KeyRound, Sparkles, Server, ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/SiteChrome";
-import splash from "@/assets/pundar-splash.jpg.asset.json";
+import splashImg from "@/assets/pundar-splash.jpg";
+const splash = { url: splashImg };
 
 export const Route = createFileRoute("/security")({
   head: () => ({
@@ -44,7 +45,7 @@ function SecurityPage() {
             leaves your device unencrypted, and communal funds sit inside cryptographic escrow.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <Link to="/about" hash="download" className="btn-primary">
+            <Link to="/app" className="btn-primary">
               Get Pundar <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
             <Link to="/circle" className="btn-ghost">See escrow flow</Link>

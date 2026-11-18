@@ -5,19 +5,26 @@ import {
   Receipt, Sparkles, Check, Lock, Fingerprint, ArrowUpRight,
 } from "lucide-react";
 import { SiteNav, SiteFooter } from "@/components/SiteChrome";
-import splash from "@/assets/pundar-splash.jpg.asset.json";
-import homeShot from "@/assets/pundar-home.jpg.asset.json";
-import payShot from "@/assets/pundar-pay.jpg.asset.json";
-import circleShot from "@/assets/pundar-circle.jpg.asset.json";
-import growShot from "@/assets/pundar-grow.jpg.asset.json";
-import converterShot from "@/assets/pundar-converter.jpg.asset.json";
+import logoImg from "@/assets/logo.png";
+import splashImg from "@/assets/pundar-splash.jpg";
+import homeImg from "@/assets/pundar-home.jpg";
+import payImg from "@/assets/pundar-pay.jpg";
+import circleImg from "@/assets/pundar-circle.jpg";
+import growImg from "@/assets/pundar-grow.jpg";
+import converterImg from "@/assets/pundar-converter.jpg";
+const splash = { url: splashImg };
+const homeShot = { url: homeImg };
+const payShot = { url: payImg };
+const circleShot = { url: circleImg };
+const growShot = { url: growImg };
+const converterShot = { url: converterImg };
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pundar — Send, Save, Grow on Stellar" },
+      { title: "Pundar – Send, Save, Grow on Stellar" },
       { name: "description", content: "Pundar is the everyday money app powered by Stellar. Send instantly, split bills, join Paluwagan Circles, and grow your money with tokenized PSE equities." },
-      { property: "og:title", content: "Pundar — Your everyday money app" },
+      { property: "og:title", content: "Pundar – Your everyday money app" },
       { property: "og:description", content: "Send, Pay, Save, and Grow. Powered by Stellar Blockchain." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: splash.url },
@@ -43,7 +50,7 @@ const pillars = [
   {
     tag: "PUNDAR Pay",
     title: "Split bills the smart way",
-    desc: "Group expenses, instant settlements, and receipts you can trust — all powered by Stellar rails.",
+    desc: "Group expenses, instant settlements, and receipts you can trust – all powered by Stellar rails.",
     shot: payShot.url,
     accent: "from-blue-500/40 to-indigo-500/10",
   },
@@ -57,7 +64,7 @@ const pillars = [
   {
     tag: "PUNDAR Grow",
     title: "Tokenized PSE equities",
-    desc: "Invest your spare change with round-ups. Own a fraction of the Philippine market from ₱1.",
+    desc: "Invest your spare change with round-ups. Own a fraction of the Philippine market from â‚±1.",
     shot: growShot.url,
     accent: "from-emerald-500/40 to-teal-500/10",
   },
@@ -84,19 +91,28 @@ function Landing() {
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg">
               The everyday money app for Filipinos. Instant transfers, group savings (Paluwagan),
-              bill splits, and tokenized investments — all on one Stellar-powered wallet.
+              bill splits, and tokenized investments – all on one Stellar-powered wallet.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/about" hash="download" className="btn-primary">
+              <Link to="/app" className="btn-primary">
                 Get Pundar <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <a href="#features" className="btn-ghost">Explore Features</a>
             </div>
 
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
-              <div><div className="text-2xl font-black">₱11.43</div><div className="text-xs text-muted-foreground mt-1">Live XLM rate</div></div>
-              <div><div className="text-2xl font-black">80M+</div><div className="text-xs text-muted-foreground mt-1">Filipinos</div></div>
-              <div><div className="text-2xl font-black">4.8★</div><div className="text-xs text-muted-foreground mt-1">App rating</div></div>
+              <div>
+                <div className="text-2xl font-black text-primary">5-sec</div>
+                <div className="text-xs text-muted-foreground mt-1">Settlement speed</div>
+              </div>
+              <div>
+                <div className="text-2xl font-black text-mint">₱0.001</div>
+                <div className="text-xs text-muted-foreground mt-1">Per transaction fee</div>
+              </div>
+              <div>
+                <div className="text-2xl font-black text-gold">100%</div>
+                <div className="text-xs text-muted-foreground mt-1">On-chain escrow</div>
+              </div>
             </div>
           </div>
 
@@ -104,13 +120,13 @@ function Landing() {
           <div className="relative flex justify-center items-center min-h-[560px]">
             <div className="absolute w-[380px] h-[380px] rounded-full ping-ring opacity-60" />
             <div className="phone-frame w-[240px] absolute -left-4 top-16 float-slower rotate-[-8deg]">
-              <img src={circleShot.url} alt="Pundar Circle Paluwagan" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={circleShot.url} alt="Pundar Circle Paluwagan" /></div>
             </div>
             <div className="phone-frame w-[280px] relative z-10 float-slow">
-              <img src={homeShot.url} alt="Pundar wallet home" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={homeShot.url} alt="Pundar wallet home" /></div>
             </div>
             <div className="phone-frame w-[240px] absolute -right-4 top-24 float-slower rotate-[8deg]" style={{ animationDelay: "1.5s" }}>
-              <img src={growShot.url} alt="Pundar Grow investments" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={growShot.url} alt="Pundar Grow investments" /></div>
             </div>
           </div>
         </div>
@@ -122,7 +138,7 @@ function Landing() {
           <div className="text-center max-w-2xl mx-auto">
             <p className="text-primary font-semibold text-sm uppercase tracking-widest">Quick Actions</p>
             <h2 className="mt-3 text-4xl lg:text-5xl font-black tracking-tight">Every transaction counts.</h2>
-            <p className="mt-4 text-muted-foreground">One tap for everything you need — from sending money to growing your future.</p>
+            <p className="mt-4 text-muted-foreground">One tap for everything you need – from sending money to growing your future.</p>
           </div>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4">
             {services.map(({ icon: Icon, label, tint }) => (
@@ -139,7 +155,7 @@ function Landing() {
         </div>
       </section>
 
-      {/* Feature pillars — Pay / Circle / Grow */}
+      {/* Feature pillars – Pay / Circle / Grow */}
       {pillars.map((p, i) => {
         const flipped = i % 2 === 1;
         const anchor = ["pay", "circle", "grow"][i];
@@ -167,13 +183,136 @@ function Landing() {
               <div className="relative flex justify-center">
                 <div className={`absolute -inset-10 rounded-full blur-3xl bg-gradient-to-br ${p.accent} opacity-70 pointer-events-none`} />
                 <div className="phone-frame w-[280px] relative">
-                  <img src={p.shot} alt={p.title} className="w-full rounded-[2rem]" />
+                  <div className="phone-screen"><img src={p.shot} alt={p.title} /></div>
                 </div>
               </div>
             </div>
           </section>
         );
       })}
+
+      {/* Video Section */}
+      <section className="py-20 lg:py-28 relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute inset-0 pointer-events-none"
+             style={{ background: "radial-gradient(ellipse at 50% 50%, oklch(0.68 0.19 250 / 0.07) 0%, transparent 70%)" }} />
+
+        <div className="mx-auto max-w-7xl px-6 relative">
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-primary font-semibold text-sm uppercase tracking-widest">See It In Action</p>
+            <h2 className="mt-3 text-4xl lg:text-5xl font-black tracking-tight">
+              Watch PUNDAR <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(90deg, oklch(0.78 0.19 155), oklch(0.68 0.19 250))" }}>come alive.</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg">
+              See the full app in action and discover what makes PUNDAR the everyday money app for Filipinos.
+            </p>
+          </div>
+
+          {/* Two video containers */}
+          <div className="grid lg:grid-cols-2 gap-8">
+
+            {/* Video 1 — Demo Video */}
+            <div className="group flex flex-col gap-4">
+              {/* Label */}
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl grid place-items-center shrink-0"
+                     style={{ background: "oklch(0.68 0.19 250 / 0.15)", border: "1px solid oklch(0.68 0.19 250 / 0.3)" }}>
+                  <span className="text-sm">▶️</span>
+                </div>
+                <div>
+                  <div className="font-black text-lg">App Demo</div>
+                  <div className="text-xs text-muted-foreground">Full walkthrough of PUNDAR features</div>
+                </div>
+              </div>
+
+              {/* Video frame — landscape 16:9 */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary/30 transition-all duration-300"
+                   style={{
+                     aspectRatio: "16/9",
+                     background: "linear-gradient(135deg, oklch(0.16 0.05 262), oklch(0.11 0.03 260))",
+                     boxShadow: "0 20px 60px -20px oklch(0 0 0 / 0.6), 0 0 0 1px oklch(0.68 0.19 250 / 0.1)"
+                   }}>
+
+                {/* Replace src with your video file or YouTube embed */}
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  poster=""
+                  preload="metadata"
+                >
+                  {/* 👇 DROP YOUR DEMO VIDEO FILE HERE */}
+                  <source src="/videos/pundar-demo.mp4" type="video/mp4" />
+                </video>
+
+                {/* Shimmer overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                     style={{ background: "linear-gradient(135deg, oklch(0.68 0.19 250 / 0.05) 0%, transparent 50%)" }} />
+              </div>
+
+              {/* Caption */}
+              <p className="text-sm text-muted-foreground px-1">
+                A complete walkthrough showing bill splitting, Paluwagan Circles, instant Stellar transfers, and the Grow investment feature.
+              </p>
+            </div>
+
+            {/* Video 2 — Promotional Video */}
+            <div className="group flex flex-col gap-4">
+              {/* Label */}
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl grid place-items-center shrink-0"
+                     style={{ background: "oklch(0.78 0.19 155 / 0.15)", border: "1px solid oklch(0.78 0.19 155 / 0.3)" }}>
+                  <span className="text-sm">🎬</span>
+                </div>
+                <div>
+                  <div className="font-black text-lg">Promotional Video</div>
+                  <div className="text-xs text-muted-foreground">The PUNDAR story &amp; vision</div>
+                </div>
+              </div>
+
+              {/* Video frame — landscape 16:9 */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-mint/30 transition-all duration-300"
+                   style={{
+                     aspectRatio: "16/9",
+                     background: "linear-gradient(135deg, oklch(0.16 0.05 262), oklch(0.11 0.03 260))",
+                     boxShadow: "0 20px 60px -20px oklch(0 0 0 / 0.6), 0 0 0 1px oklch(0.78 0.19 155 / 0.1)"
+                   }}>
+
+                {/* Replace src with your video file or YouTube embed */}
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  poster=""
+                  preload="metadata"
+                >
+                  {/* 👇 DROP YOUR PROMO VIDEO FILE HERE */}
+                  <source src="/videos/pundar-promo.mp4" type="video/mp4" />
+                </video>
+
+                {/* Shimmer overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                     style={{ background: "linear-gradient(135deg, oklch(0.78 0.19 155 / 0.05) 0%, transparent 50%)" }} />
+              </div>
+
+              {/* Caption */}
+              <p className="text-sm text-muted-foreground px-1">
+                The story behind PUNDAR — our mission to digitize Filipino finance and bring wealth-building tools to every pocket.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Bottom note */}
+          <div className="mt-10 text-center">
+            <p className="text-xs text-muted-foreground">
+              Prefer to try it yourself?{" "}
+              <a href="/app" className="text-primary font-semibold hover:underline">
+                Launch the live demo →
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* XLM Converter strip */}
       <section className="py-20">
@@ -183,21 +322,41 @@ function Landing() {
               <p className="text-gold font-semibold text-sm uppercase tracking-widest">XLM Converter</p>
               <h3 className="mt-3 text-3xl lg:text-4xl font-black tracking-tight">Global money, one currency.</h3>
               <p className="mt-4 text-foreground/70">
-                See real-time rates for PHP, USD, EUR, and JPY. Move money across borders in seconds — no more wire fees.
+                Real-time XLM rates across 40+ currencies. Move money anywhere in seconds — no wire fees.
               </p>
-              <div className="mt-6 grid grid-cols-2 gap-3 max-w-md">
+              <div className="mt-6 grid grid-cols-2 gap-2 max-w-lg">
                 {[
-                  { flag: "🇵🇭", code: "PHP", rate: "₱11.4300" },
-                  { flag: "🇺🇸", code: "USD", rate: "$0.1847" },
-                  { flag: "🇪🇺", code: "EUR", rate: "€0.1623" },
-                  { flag: "🇯🇵", code: "JPY", rate: "¥30.26" },
+                  { flag: "🇵🇭", code: "PHP", label: "Philippine Peso",   rate: "₱11.43"   },
+                  { flag: "🇺🇸", code: "USD", label: "US Dollar",          rate: "$0.1847"  },
+                  { flag: "🇪🇺", code: "EUR", label: "Euro",               rate: "€0.1623"  },
+                  { flag: "🇯🇵", code: "JPY", label: "Japanese Yen",       rate: "¥30.26"   },
+                  { flag: "🇬🇧", code: "GBP", label: "British Pound",      rate: "£0.1441"  },
+                  { flag: "🇦🇺", code: "AUD", label: "Australian Dollar",  rate: "A$0.2731" },
+                  { flag: "🇨🇦", code: "CAD", label: "Canadian Dollar",    rate: "C$0.2512" },
+                  { flag: "🇨🇭", code: "CHF", label: "Swiss Franc",        rate: "Fr0.1598" },
+                  { flag: "🇨🇳", code: "CNY", label: "Chinese Yuan",       rate: "¥1.3421"  },
+                  { flag: "🇸🇬", code: "SGD", label: "Singapore Dollar",   rate: "S$0.2451" },
+                  { flag: "🇰🇷", code: "KRW", label: "Korean Won",         rate: "₩241.50"  },
+                  { flag: "🇮🇳", code: "INR", label: "Indian Rupee",       rate: "₹15.43"   },
+                  { flag: "🇲🇽", code: "MXN", label: "Mexican Peso",       rate: "MX$3.42"  },
+                  { flag: "🇧🇷", code: "BRL", label: "Brazilian Real",     rate: "R$1.08"   },
+                  { flag: "🇦🇪", code: "AED", label: "UAE Dirham",         rate: "AED 0.68" },
+                  { flag: "🇳🇿", code: "NZD", label: "New Zealand Dollar", rate: "NZ$0.30"  },
+                  { flag: "🇹🇭", code: "THB", label: "Thai Baht",          rate: "฿6.42"    },
+                  { flag: "🇲🇾", code: "MYR", label: "Malaysian Ringgit",  rate: "RM0.82"   },
+                  { flag: "🇮🇩", code: "IDR", label: "Indonesian Rupiah",  rate: "Rp2,891"  },
+                  { flag: "🇻🇳", code: "VND", label: "Vietnamese Dong",    rate: "₫4,612"   },
+                  { flag: "🇵🇰", code: "PKR", label: "Pakistani Rupee",    rate: "₨51.83"   },
+                  { flag: "🇿🇦", code: "ZAR", label: "South African Rand", rate: "R3.38"    },
                 ].map((c) => (
-                  <div key={c.code} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                    <span className="text-2xl">{c.flag}</span>
-                    <div>
-                      <div className="text-xs text-muted-foreground">1 XLM =</div>
-                      <div className="font-bold">{c.rate}</div>
+                  <div key={c.code} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-primary/30 transition">
+                    <span className="text-xl leading-none">{c.flag}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[10px] text-muted-foreground truncate">{c.label}</div>
+                      <div className="font-bold text-sm">{c.rate}</div>
+                      <div className="text-[10px] text-muted-foreground">1 XLM</div>
                     </div>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-primary/15 text-primary">{c.code}</span>
                   </div>
                 ))}
               </div>
@@ -205,14 +364,12 @@ function Landing() {
             <div className="relative flex justify-center">
               <div className="absolute -inset-6 rounded-full blur-3xl bg-primary/25 pointer-events-none" />
               <div className="phone-frame w-[260px] relative">
-                <img src={converterShot.url} alt="XLM Converter" className="w-full rounded-[2rem]" />
+                <div className="phone-screen"><img src={converterShot.url} alt="XLM Converter" /></div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Security */}
       <section id="security" className="py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-2xl mx-auto">
@@ -223,7 +380,7 @@ function Landing() {
             {[
               { icon: ShieldCheck, title: "End-to-end encryption", desc: "Every transaction is secured by Stellar's decentralized ledger." },
               { icon: Fingerprint, title: "Biometric login", desc: "MPIN, Face ID, and fingerprint keep your wallet locked to you." },
-              { icon: Lock, title: "Soroban escrow", desc: "Smart contract escrow for group savings — no single point of trust." },
+              { icon: Lock, title: "Soroban escrow", desc: "Smart contract escrow for group savings – no single point of trust." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="glass-card p-8">
                 <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 grid place-items-center">
@@ -242,7 +399,7 @@ function Landing() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <p className="text-primary font-semibold text-sm uppercase tracking-widest">Your Financial Journey</p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight">Spend · Save · Grow · Together</h2>
+            <h2 className="mt-3 text-4xl font-black tracking-tight">Spend Â· Save Â· Grow Â· Together</h2>
           </div>
           <div className="mt-14 relative">
             <div className="absolute top-8 left-8 right-8 h-1 rounded-full bg-white/5 overflow-hidden">
@@ -280,31 +437,31 @@ function Landing() {
             <div className="absolute inset-0 opacity-30 pointer-events-none"
                  style={{ background: "radial-gradient(circle at 50% 0%, var(--primary) 0%, transparent 50%)" }} />
             <div className="relative">
-              <div className="mx-auto w-16 h-16 rounded-full border-2 border-primary grid place-items-center">
-                <span className="text-2xl font-black text-primary">P</span>
+              <div className="mx-auto w-16 h-16 rounded-full overflow-hidden">
+                <img src={logoImg} alt="Pundar" className="w-full h-full object-cover" />
               </div>
               <h2 className="mt-6 text-4xl lg:text-6xl font-black tracking-tight">Get Pundar today</h2>
               <p className="mt-4 text-foreground/70 max-w-xl mx-auto text-lg">
                 Download the app, verify your number, and start moving your money the smart way.
               </p>
               <div className="mt-10 flex flex-wrap gap-3 justify-center">
-                <button className="inline-flex items-center gap-3 px-6 py-4 bg-white text-black rounded-2xl font-semibold hover:bg-white/90 transition">
+                <a href={`${import.meta.env.BASE_URL}pundar.apk`} download="pundar.apk" className="inline-flex items-center gap-3 px-6 py-4 bg-white text-black rounded-2xl font-semibold hover:bg-white/90 transition">
                   <Smartphone className="w-6 h-6" />
                   <div className="text-left leading-tight">
-                    <div className="text-[10px] opacity-70">Download on the</div>
-                    <div className="text-base font-bold">App Store</div>
+                    <div className="text-[10px] opacity-70">Direct download</div>
+                    <div className="text-base font-bold">Get APK</div>
                   </div>
-                </button>
-                <button className="inline-flex items-center gap-3 px-6 py-4 bg-white text-black rounded-2xl font-semibold hover:bg-white/90 transition">
+                </a>
+                <Link to="/app" className="inline-flex items-center gap-3 px-6 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold hover:bg-primary/90 transition">
                   <Smartphone className="w-6 h-6" />
                   <div className="text-left leading-tight">
-                    <div className="text-[10px] opacity-70">Get it on</div>
-                    <div className="text-base font-bold">Google Play</div>
+                    <div className="text-[10px] opacity-80">No install needed</div>
+                    <div className="text-base font-bold">Try Live Demo</div>
                   </div>
-                </button>
+                </Link>
               </div>
               <p className="mt-8 text-xs text-muted-foreground uppercase tracking-widest">
-                Build Together · Grow Together · Powered by Stellar
+                Build Together Â· Grow Together Â· Powered by Stellar
               </p>
             </div>
           </div>
@@ -317,3 +474,4 @@ function Landing() {
     </div>
   );
 }
+

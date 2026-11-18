@@ -4,8 +4,6 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -77,21 +75,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Pundar — Send, Save, Grow on Stellar" },
+      { name: "description", content: "Pundar is the everyday money app for Filipinos powered by Stellar. Send instantly, split bills, join Paluwagan Circles, and grow your money." },
+      { name: "author", content: "Pundar" },
+      { property: "og:title", content: "Pundar — Your everyday money app" },
+      { property: "og:description", content: "Send, Pay, Save, and Grow. Powered by Stellar Blockchain." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pundar.site" },
+      { property: "og:site_name", content: "PUNDAR" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@PundarApp" },
+      { name: "twitter:domain", content: "pundar.site" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/logo.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,17 +102,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
+  // SPA build: the real <html>/<head>/<body> come from dist/index.html.
+  // Returning <html> here would render nested <html> inside #root, which
+  // the browser discards — leaving a blank page.
+  return <>{children}</>;
 }
 
 function RootComponent() {

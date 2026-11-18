@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "dev:spa": "vite -c vite.spa.config.ts",
     "build": "vite build",
+    "build:spa": "vite build -c vite.spa.config.ts",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "preview:spa": "vite preview -c vite.spa.config.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -49,6 +52,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.16.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.575.0",
     "react": "^19.2.0",

@@ -1,15 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Users, Lock, ShieldCheck, Sparkles, Check, ArrowRight, QrCode, Star } from "lucide-react";
 import { SiteShell } from "@/components/SiteChrome";
-import circleShot from "@/assets/pundar-circle.jpg.asset.json";
-import homeShot from "@/assets/pundar-home.jpg.asset.json";
+import circleImg from "@/assets/pundar-circle.jpg";
+import homeImg from "@/assets/pundar-home.jpg";
+const circleShot = { url: circleImg };
+const homeShot = { url: homeImg };
 
 export const Route = createFileRoute("/circle")({
   head: () => ({
     meta: [
-      { title: "PUNDAR Circle — Paluwagan on Stellar with Soroban escrow" },
+      { title: "PUNDAR Circle â€” Paluwagan on Stellar with Soroban escrow" },
       { name: "description", content: "Digitized Filipino paluwagan secured by Soroban smart contracts. Trustless group savings with automatic payouts, refunds, and reputation scoring." },
-      { property: "og:title", content: "PUNDAR Circle — Trustless paluwagan" },
+      { property: "og:title", content: "PUNDAR Circle â€” Trustless paluwagan" },
       { property: "og:description", content: "Save with your circle, secured by Stellar smart contracts. No one can abscond with the funds." },
       { property: "og:type", content: "website" },
       { property: "og:image", content: circleShot.url },
@@ -21,12 +23,12 @@ export const Route = createFileRoute("/circle")({
 });
 
 const pillars = [
-  { icon: Lock, title: "Soroban escrow", desc: "Contributions locked in a cryptographic contract — no admin can walk off with the funds." },
+  { icon: Lock, title: "Soroban escrow", desc: "Contributions locked in a cryptographic contract â€” no admin can walk off with the funds." },
   { icon: ShieldCheck, title: "Auto payouts", desc: "The contract enforces the payout cycle and refunds automatically if a deadline lapses." },
   { icon: QrCode, title: "Invite anyone", desc: "Bring members in via phone, username, QR code, or a shareable link." },
   { icon: Star, title: "Pundar Score", desc: "Consistent contributors build a reputation score that unlocks bigger circles." },
   { icon: Sparkles, title: "Holographic UI", desc: "3D cards, shimmer, and live progress make communal savings feel premium." },
-  { icon: Users, title: "Custom rules", desc: "Target amount, schedule, payout order, and penalties — configured per circle." },
+  { icon: Users, title: "Custom rules", desc: "Target amount, schedule, payout order, and penalties â€” configured per circle." },
 ];
 
 function CirclePage() {
@@ -43,27 +45,27 @@ function CirclePage() {
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-lg">
               The Filipino rotating-savings tradition, upgraded with Soroban smart contracts.
-              Every contribution is escrowed on-chain — trust becomes math, not a promise.
+              Every contribution is escrowed on-chain â€” trust becomes math, not a promise.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/about" hash="download" className="btn-primary">
+              <Link to="/app" className="btn-primary">
                 Start a Circle <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link to="/security" className="btn-ghost">How escrow works</Link>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
               <div><div className="text-2xl font-black">100%</div><div className="text-xs text-muted-foreground mt-1">On-chain escrow</div></div>
-              <div><div className="text-2xl font-black">0₱</div><div className="text-xs text-muted-foreground mt-1">Admin can withdraw</div></div>
+              <div><div className="text-2xl font-black">0â‚±</div><div className="text-xs text-muted-foreground mt-1">Admin can withdraw</div></div>
               <div><div className="text-2xl font-black">Auto</div><div className="text-xs text-muted-foreground mt-1">Refunds on lapse</div></div>
             </div>
           </div>
           <div className="relative flex justify-center min-h-[520px] items-center">
             <div className="absolute w-[360px] h-[360px] rounded-full ping-ring opacity-60" />
             <div className="phone-frame w-[260px] absolute -right-2 top-10 float-slower rotate-[6deg]">
-              <img src={homeShot.url} alt="Pundar home" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={homeShot.url} alt="Pundar home" /></div>
             </div>
             <div className="phone-frame w-[280px] relative z-10 float-slow">
-              <img src={circleShot.url} alt="PUNDAR Circle paluwagan" className="w-full rounded-[2rem]" />
+              <div className="phone-screen"><img src={circleShot.url} alt="PUNDAR Circle paluwagan" /></div>
             </div>
           </div>
         </div>
@@ -114,3 +116,4 @@ function CirclePage() {
     </SiteShell>
   );
 }
+

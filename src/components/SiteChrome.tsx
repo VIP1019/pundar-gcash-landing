@@ -1,13 +1,16 @@
 import { Link } from "@tanstack/react-router";
-import { Star } from "lucide-react";
+import { Star, Download } from "lucide-react";
 import type { ReactNode } from "react";
+import logoImg from "@/assets/logo.png";
 
 const navLinks = [
+  { to: "/", label: "Home" },
   { to: "/pay", label: "Pay" },
   { to: "/circle", label: "Circle" },
   { to: "/grow", label: "Grow" },
   { to: "/security", label: "Security" },
   { to: "/about", label: "About" },
+  { to: "/app", label: "App Demo" },
 ] as const;
 
 export function SiteNav() {
@@ -15,9 +18,7 @@ export function SiteNav() {
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-white/5">
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="relative w-10 h-10 rounded-full grid place-items-center border-2 border-primary bg-background">
-            <span className="font-black text-primary text-lg">P</span>
-          </div>
+          <img src={logoImg} alt="Pundar logo" className="w-10 h-10 rounded-full object-cover" />
           <span className="text-xl font-black tracking-widest">PUNDAR</span>
         </Link>
         <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-foreground/75">
@@ -36,8 +37,8 @@ export function SiteNav() {
           <span className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/15 text-gold text-xs font-bold">
             <Star className="w-3.5 h-3.5 fill-gold" /> 850
           </span>
-          <Link to="/about" hash="download" className="btn-primary text-sm px-5 py-2.5">
-            Download
+          <Link to="/app" className="btn-primary text-sm px-5 py-2.5 inline-flex items-center gap-2">
+            <Download className="w-4 h-4" /> Download
           </Link>
         </div>
       </div>
@@ -71,9 +72,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-14 grid md:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-full grid place-items-center border-2 border-primary">
-              <span className="font-black text-primary">P</span>
-            </div>
+            <img src={logoImg} alt="Pundar logo" className="w-9 h-9 rounded-full object-cover" />
             <span className="text-lg font-black tracking-widest">PUNDAR</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-xs">
