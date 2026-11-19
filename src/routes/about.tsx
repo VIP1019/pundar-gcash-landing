@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Smartphone, Sparkles, Star, ArrowRight, Users, Globe, TrendingUp } from "lucide-react";
 import { SiteShell } from "@/components/SiteChrome";
 import logoImg from "@/assets/logo.png";
+import { APK_URL } from "@/lib/apk";
 import splashImg from "@/assets/pundar-splash.jpg";
 import homeImg from "@/assets/pundar-home.jpg";
 const splash = { url: splashImg };
@@ -97,7 +98,7 @@ function AboutPage() {
                 Download the app, verify your number, and start moving your money the smart way.
               </p>
               <div className="mt-10 flex flex-wrap gap-3 justify-center">
-                <a href={`${import.meta.env.BASE_URL}pundar.apk`} download="pundar.apk" className="inline-flex items-center gap-3 px-6 py-4 bg-white text-black rounded-2xl font-semibold hover:bg-white/90 transition">
+                <a href={APK_URL} download="pundar.apk" className="inline-flex items-center gap-3 px-6 py-4 bg-white text-black rounded-2xl font-semibold hover:bg-white/90 transition">
                   <Smartphone className="w-6 h-6" />
                   <div className="text-left leading-tight">
                     <div className="text-[10px] opacity-70">Direct download</div>

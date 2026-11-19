@@ -3,6 +3,7 @@ import { Smartphone, Download, Play, ArrowRight, ShieldCheck, Zap, Star, Monitor
 import { SiteShell } from "@/components/SiteChrome";
 import logoImg from "@/assets/logo.png";
 import { useState } from "react";
+import { APK_URL } from "@/lib/apk";
 import { GenymotionEmulator } from "@/components/GenymotionEmulator";
 export const Route = createFileRoute("/app")({
   head: () => ({
@@ -128,7 +129,7 @@ function AppPage() {
 
               {/* Download button */}
               <a
-                href={`${import.meta.env.BASE_URL}pundar.apk`}
+                href={APK_URL}
                 download="pundar.apk"
                 className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl font-bold text-base transition"
                 style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}
