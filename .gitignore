@@ -35,3 +35,4 @@ test_*.cjs
 check_*.cjs
 index-*.js
 public/videos/
+app-debug-androidTest.apk

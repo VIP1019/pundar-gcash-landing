@@ -115,7 +115,7 @@ function AppPage() {
               {/* APK details */}
               <div className="grid grid-cols-3 gap-3 text-center">
                 {[
-                  { label: "Size", value: "~56 MB" },
+                  { label: "Size", value: "~64 MB" },
                   { label: "Version", value: "1.0.0" },
                   { label: "Requires", value: "Android 8+" },
                 ].map(d => (
